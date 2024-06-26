@@ -1,18 +1,16 @@
-package customers.aop;
+package bank.aop;
 
-import customers.integration.ILogger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Aspect
 @Component
-public class CustomerDAOAspect {
+public class ServiceAspect {
 
-    @Around("execution(* customers.repository.impl.CustomerDAO.*(..))")
+    @Around("execution(* bank.service.*.*(..))")
     public Object invoke(ProceedingJoinPoint call ) throws Throwable {
         StopWatch sw = new StopWatch();
         sw.start(call.getSignature().getName());
@@ -20,8 +18,7 @@ public class CustomerDAOAspect {
         sw.stop();
         long totaltime = sw.getLastTaskTimeMillis();
 // print the time to the console
-        System.out.println("Time to execute save = "+totaltime+" ms");
+        System.out.println("Time to execute " + call.getSignature().getName() + " = " + totaltime + " ms");
         return retVal;
     }
-
 }
