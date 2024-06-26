@@ -17,7 +17,8 @@ public class DaoAspect {
 
     @After("execution(* bank.dao.*.*(..))")
     public void logDaoAccess(JoinPoint joinPoint) {
-        logger.log("Dao method accessed: " + joinPoint.getSignature().getName()+
-                "Access time= "+ LocalDateTime.now());
+        logger.log("Access time= "+ LocalDateTime.now()+"Dao method accessed: "
+                + joinPoint.getSignature().getName()
+               + " called by "+joinPoint.getTarget() );
     }
 }
