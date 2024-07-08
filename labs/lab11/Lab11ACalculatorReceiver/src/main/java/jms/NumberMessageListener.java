@@ -35,7 +35,7 @@ public class NumberMessageListener {
                     break;
             }
         } catch (IOException e) {
-            System.out.println("JMS receiver: Cannot convert : " + numberAsString+" to a Person object");
+            System.out.println("JMS receiver: Cannot convert : " + numberAsString+" to a Number object");
         }
      }
 }
