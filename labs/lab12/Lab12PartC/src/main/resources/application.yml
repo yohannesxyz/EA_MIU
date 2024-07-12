@@ -1,0 +1,15 @@
+application:
+  name: MySpringBootApp
+  version: 1.0.0
+  url: http://localhost:8080
+  serverName: LocalServer
+  user:
+    firstname: John
+    lastname: Doe
+    username: johndoe123
+    password: secretpassword
+  countries:
+    - USA
+    - Canada
+    - Mexico
+
